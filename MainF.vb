@@ -20,7 +20,7 @@ Public Class MainF
                 MsgBoxStyle.Critical, "Evry1falls - Purchases And Sales Desktop Apps.")
             If xEXIT = MsgBoxResult.Yes Then
                 Enabled = False
-                Dim OriginalDB As String = IO.Path.Combine(Application.StartupPath, My.Settings.DBName)
+                Dim OriginalDB As String = IO.Path.Combine(Application.StartupPath, "DB", My.Settings.DBName)
                 'This will Compact & Repair MSAccess2007 Database to the same location with the same name.
                 Cursor.Current = Cursors.WaitCursor
                 'Compact & Repair needs the Database File (*.accdb) to be closed.

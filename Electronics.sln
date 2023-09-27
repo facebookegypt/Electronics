@@ -9,6 +9,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ConfigurationLibrary_vb", "
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaseLibrary", "..\BaseLibrary\BaseLibrary.vbproj", "{97CD3D97-89FF-4B94-8EE7-A4F861217ED8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Electronics", "Electronics.vdproj", "{5540AFC6-6CFC-463F-BED2-AA508E5B8083}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,12 @@ Global
 		{97CD3D97-89FF-4B94-8EE7-A4F861217ED8}.Release|x64.Build.0 = Release|Any CPU
 		{97CD3D97-89FF-4B94-8EE7-A4F861217ED8}.Release|x86.ActiveCfg = Release|x86
 		{97CD3D97-89FF-4B94-8EE7-A4F861217ED8}.Release|x86.Build.0 = Release|x86
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Debug|Any CPU.ActiveCfg = Debug
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Debug|x64.ActiveCfg = Debug
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Debug|x86.ActiveCfg = Debug
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Release|Any CPU.ActiveCfg = Release
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Release|x64.ActiveCfg = Release
+		{5540AFC6-6CFC-463F-BED2-AA508E5B8083}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

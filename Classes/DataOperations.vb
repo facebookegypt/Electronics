@@ -12,7 +12,7 @@ Public Class DataOperations
         Dim Cryp As New Simple3Des(My.Settings.K)
         ConnectionString =
             My.Settings.MainConn &
-            IO.Path.Combine(Application.StartupPath, "electronics.accdb;") &
+            IO.Path.Combine(Application.StartupPath, "DB", "electronics.accdb;") &
             My.Settings.RestConn &
             Cryp.DecryptData(My.Settings.DatabasePass) & ";"
         operations.EncryptFile()
