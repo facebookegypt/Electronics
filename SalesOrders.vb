@@ -2,6 +2,8 @@
 Imports System.Linq
 
 Public Class SalesOrders
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Private ComboItemsK As Dictionary(Of Integer, String) = New Dictionary(Of Integer, String)
     Private ComboItemsS As Dictionary(Of Integer, String) = New Dictionary(Of Integer, String)
     Private ComboItemsU As Dictionary(Of Integer, String) = New Dictionary(Of Integer, String)

@@ -46,10 +46,11 @@ Partial Class MainF
         Me.Button6.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button6.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button6.Location = New System.Drawing.Point(17, 353)
+        Me.Button6.Location = New System.Drawing.Point(23, 438)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button6.Name = "Button6"
         Me.Button6.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button6.Size = New System.Drawing.Size(138, 43)
+        Me.Button6.Size = New System.Drawing.Size(184, 53)
         Me.Button6.TabIndex = 12
         Me.Button6.Text = "الخروج"
         Me.Button6.UseVisualStyleBackColor = False
@@ -65,10 +66,11 @@ Partial Class MainF
         Me.Button5.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button5.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button5.Location = New System.Drawing.Point(16, 253)
+        Me.Button5.Location = New System.Drawing.Point(22, 314)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button5.Name = "Button5"
         Me.Button5.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button5.Size = New System.Drawing.Size(139, 44)
+        Me.Button5.Size = New System.Drawing.Size(185, 54)
         Me.Button5.TabIndex = 10
         Me.Button5.Text = "النقدية"
         Me.Button5.UseVisualStyleBackColor = False
@@ -84,10 +86,11 @@ Partial Class MainF
         Me.Button1.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button1.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button1.Location = New System.Drawing.Point(16, 153)
+        Me.Button1.Location = New System.Drawing.Point(22, 190)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
         Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button1.Size = New System.Drawing.Size(139, 44)
+        Me.Button1.Size = New System.Drawing.Size(185, 54)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "المشتريات"
         Me.Button1.UseVisualStyleBackColor = False
@@ -103,10 +106,11 @@ Partial Class MainF
         Me.Button7.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button7.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button7.Location = New System.Drawing.Point(16, 203)
+        Me.Button7.Location = New System.Drawing.Point(22, 252)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button7.Name = "Button7"
         Me.Button7.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button7.Size = New System.Drawing.Size(139, 44)
+        Me.Button7.Size = New System.Drawing.Size(185, 54)
         Me.Button7.TabIndex = 8
         Me.Button7.Text = "المبيعات"
         Me.Button7.UseVisualStyleBackColor = False
@@ -124,10 +128,11 @@ Partial Class MainF
         Me.FLW.Controls.Add(Me.Button5)
         Me.FLW.Controls.Add(Me.B10)
         Me.FLW.Controls.Add(Me.Button6)
-        Me.FLW.Location = New System.Drawing.Point(854, 0)
+        Me.FLW.Location = New System.Drawing.Point(1139, 0)
+        Me.FLW.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.FLW.Name = "FLW"
         Me.FLW.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.FLW.Size = New System.Drawing.Size(158, 457)
+        Me.FLW.Size = New System.Drawing.Size(211, 562)
         Me.FLW.TabIndex = 20
         '
         'Button2
@@ -142,10 +147,11 @@ Partial Class MainF
         Me.Button2.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button2.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button2.Location = New System.Drawing.Point(16, 3)
+        Me.Button2.Location = New System.Drawing.Point(22, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
         Me.Button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button2.Size = New System.Drawing.Size(139, 44)
+        Me.Button2.Size = New System.Drawing.Size(185, 54)
         Me.Button2.TabIndex = 4
         Me.Button2.Text = " الموردين"
         Me.Button2.UseVisualStyleBackColor = False
@@ -161,10 +167,11 @@ Partial Class MainF
         Me.Button8.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button8.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button8.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button8.Location = New System.Drawing.Point(16, 53)
+        Me.Button8.Location = New System.Drawing.Point(22, 66)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button8.Name = "Button8"
         Me.Button8.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button8.Size = New System.Drawing.Size(139, 44)
+        Me.Button8.Size = New System.Drawing.Size(185, 54)
         Me.Button8.TabIndex = 3
         Me.Button8.Text = "العملاء"
         Me.Button8.UseVisualStyleBackColor = False
@@ -180,10 +187,11 @@ Partial Class MainF
         Me.Button9.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.Button9.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.Button9.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Button9.Location = New System.Drawing.Point(16, 103)
+        Me.Button9.Location = New System.Drawing.Point(22, 128)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button9.Name = "Button9"
         Me.Button9.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Button9.Size = New System.Drawing.Size(139, 44)
+        Me.Button9.Size = New System.Drawing.Size(185, 54)
         Me.Button9.TabIndex = 5
         Me.Button9.Text = "المخازن"
         Me.Button9.UseVisualStyleBackColor = False
@@ -199,10 +207,11 @@ Partial Class MainF
         Me.B10.Font = New System.Drawing.Font("Times New Roman", 14.25!)
         Me.B10.ForeColor = System.Drawing.Color.LightSeaGreen
         Me.B10.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.B10.Location = New System.Drawing.Point(16, 303)
+        Me.B10.Location = New System.Drawing.Point(22, 376)
+        Me.B10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.B10.Name = "B10"
         Me.B10.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.B10.Size = New System.Drawing.Size(139, 44)
+        Me.B10.Size = New System.Drawing.Size(185, 54)
         Me.B10.TabIndex = 11
         Me.B10.Text = "الاعدادات"
         Me.B10.UseVisualStyleBackColor = False
@@ -219,22 +228,23 @@ Partial Class MainF
         Me.lblSt.Font = New System.Drawing.Font("Times New Roman", 20.0!)
         Me.lblSt.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.lblSt.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.lblSt.Location = New System.Drawing.Point(2, 506)
+        Me.lblSt.Location = New System.Drawing.Point(3, 623)
+        Me.lblSt.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSt.Name = "lblSt"
         Me.lblSt.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.lblSt.Size = New System.Drawing.Size(363, 84)
+        Me.lblSt.Size = New System.Drawing.Size(484, 103)
         Me.lblSt.TabIndex = 57
         Me.lblSt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.lblSt.UseCompatibleTextRendering = True
         '
         'MainF
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1012, 599)
+        Me.ClientSize = New System.Drawing.Size(1349, 737)
         Me.ControlBox = False
         Me.Controls.Add(Me.lblSt)
         Me.Controls.Add(Me.FLW)
@@ -242,6 +252,7 @@ Partial Class MainF
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "MainF"

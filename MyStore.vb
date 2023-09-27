@@ -1,5 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class MyStore
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Private WithEvents DGStores As DataGridView
     Private Function GetData(ByVal query As String) As DataTable
         Dim NewDtbl As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}

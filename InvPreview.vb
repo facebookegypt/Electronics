@@ -2,6 +2,8 @@
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 Public Class InvPreview
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Public TargetForm As String = Nothing
     Private Function GetData(query As String) As DataTable
         Using CN As New OleDbConnection(connectionstring),

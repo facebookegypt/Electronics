@@ -2,6 +2,8 @@
 Public Class Basics
     Public TargetForm As String = Nothing
     Sub GetData(ByVal SqlStr As String, ByVal DG As DataGridView)
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         With DG
             .EnableHeadersVisualStyles = False
             .AutoGenerateColumns = True
@@ -24,7 +26,7 @@ Public Class Basics
         End With
         Try
             Dim NewDtbl As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
-            Using CN As OleDbConnection = New OleDbConnection(connectionstring),
+            Using CN As OleDbConnection = New OleDbConnection(ConnectionString),
                 MyCmdStr As New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
                 CN.Open()
                 Using Da As OleDbDataAdapter = New OleDbDataAdapter(MyCmdStr)
@@ -119,8 +121,10 @@ Public Class Basics
             TextBox1.Focus()
             Exit Sub
         End If
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim Nm As String = TextBox1.Text, Onh As Integer = Nothing, SqlStr As String = Nothing, SqlStrDisp As String = Nothing
-        Using CN As OleDbConnection = New OleDbConnection(connectionstring)
+        Using CN As OleDbConnection = New OleDbConnection(ConnectionString)
             Dim CmdSave As OleDbCommand
             Select Case Label1.Text
                 Case Is = "اسم الوحدة"
@@ -204,6 +208,8 @@ Public Class Basics
         Dim Nm As String = TextBox1.Text, Onh As Integer = Nothing,
             SqlStr As String = Nothing, SqlStrDisp As String = Nothing, ThisID As Integer =
             DataGridView1(0, DataGridView1.CurrentCell.RowIndex).Value
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring)
             Dim CmdEdit As OleDbCommand
             Select Case Label1.Text
@@ -260,6 +266,8 @@ Public Class Basics
         Dim Nm As String = TextBox1.Text, Onh As Integer = Nothing, SqlCheck As String = Nothing,
         SqlStr As String = Nothing, SqlStrDisp As String = Nothing, ThisID As Integer =
             DataGridView1(0, DataGridView1.CurrentCell.RowIndex).Value, Onh1 As Object = Nothing
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring)
             Dim CmdDel As OleDbCommand, CmdCheck As OleDbCommand
             Select Case Label1.Text

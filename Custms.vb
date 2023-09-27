@@ -15,6 +15,8 @@ Public Class Custms
         LblSt.Text = ("لديك عدد " & CustDG.Rows.Count & " عميل")
     End Sub
     Sub GetData(ByVal SqlStr As String, ByVal DG As DataGridView)
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Try
             Dim NewDtbl As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
             Using CN As OleDbConnection = New OleDbConnection(connectionstring),
@@ -98,6 +100,8 @@ Public Class Custms
                 MsgBox("تأكيد حذف عميل ؟",
                        MsgBoxStyle.YesNoCancel + MsgBoxStyle.MsgBoxRight + MsgBoxStyle.Critical, "حذف")
             If AreYouSure = vbYes Then
+                Dim Ops As New DataOperations
+                Dim ConnectionString = Ops.GetEncryConStr
                 Dim Onhy As Object = Nothing
                 Dim Dsql As String = "DELETE * FROM Customers WHERE CustID=?;"
                 Using newCn As OleDbConnection = New OleDbConnection(connectionstring),
@@ -162,6 +166,8 @@ Public Class Custms
             MsgBox("أدخل الاسم أولا", MsgBoxStyle.Critical, "حفظ عميل")
             Exit Sub
         End If
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim NewSqlStr As String = "INSERT INTO Customers (CustNm,Mob,Tel,Address,Notes) VALUES (?,?,?,?,?);"
         Using newCn As OleDbConnection = New OleDbConnection(connectionstring),
                     NewCmd As OleDbCommand = New OleDbCommand(NewSqlStr, newCn) With {.CommandType = CommandType.Text}
@@ -205,6 +211,8 @@ Public Class Custms
     Private Sub _CMedit_Click(sender As Object, e As EventArgs) Handles _CMedit.Click
         Dim Onh3 As Object = Nothing
         Dim Esql As String = "UPDATE Customers SET CustNm=?, Mob=?, Tel=?, Address=?, Notes=? WHERE CustID=?;"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using newCn As OleDbConnection = New OleDbConnection(connectionstring),
                     NewCmd As OleDbCommand = New OleDbCommand(Esql, newCn) With {.CommandType = CommandType.Text}
             With NewCmd.Parameters
@@ -257,6 +265,8 @@ Public Class Custms
     Private Function GetallPays(ByVal CustID As Integer) As Decimal
         Dim SqlStr As String =
            "SELECT Sum(CustPaid.Payamnt) AS SumOfPayamnt FROM CustPaid GROUP BY CustPaid.CustID HAVING (((CustPaid.CustID)=?));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", CustID)
@@ -317,6 +327,8 @@ Public Class Custms
         End If
         Dim SqlStr As String =
             "SELECT COUNT(POID) FROM PurOrders WHERE TranID=2 AND CustID=?;"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", CustmrID)
@@ -349,6 +361,8 @@ Public Class Custms
             "SELECT Sum(PurOrders.PORest) AS SumOfPORest, Sum(PurOrders.POTotal) AS SumOfPOTotal FROM Customers INNER JOIN PurOrders ON " &
             "Customers.CustID = PurOrders.CustID GROUP BY PurOrders.TranID, Customers.CustID HAVING (((PurOrders.TranID)=2) AND " &
             "((Customers.CustID)=?));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", CustmrID)
@@ -381,6 +395,8 @@ Public Class Custms
         If String.IsNullOrEmpty(TextBox3.Text) Then Exit Sub
         CustsVends.SrcFrm = "CustInv"
         Dim Onh1 As Object = Nothing, Onh2 As Object = Nothing
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlDel As String = "DROP VIEW CustInvs;"
         Dim SqlStrCreate As String =
             "CREATE VIEW CustInvs AS SELECT PurOrders.POID, PurOrders.PODt, PayTypes.PTNm, Customers.CustNm, Customers.Mob, Customers.Tel, " &
@@ -420,6 +436,8 @@ Public Class Custms
 
     End Sub
     Private Function GetallPays1() As Decimal
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlStr As String =
            "SELECT Sum(CustPaid.Payamnt) AS SumOfPayamnt FROM CustPaid GROUP BY CustPaid.TranID HAVING (((CustPaid.TranID)=2));"
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
@@ -439,6 +457,8 @@ Public Class Custms
         End If
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.PORest) AS SumOfPORest FROM PurOrders GROUP BY PurOrders.TranID HAVING (((PurOrders.TranID)=2));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             Try
@@ -460,6 +480,8 @@ Public Class Custms
         TextBox5.Text = FormatCurrency(AllCustsDebts() - GetallPays1(), 2)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         'بيان أوامر البيع
         If String.IsNullOrEmpty(TextBox5.Text) Then Exit Sub
         CashDetails.TargetForm1 = "AllCustsDebts"

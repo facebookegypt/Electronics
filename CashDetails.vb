@@ -1,9 +1,10 @@
 ﻿Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
 Public Class CashDetails
     Public TargetForm1 As String = Nothing
     Private Function GetData(query As String) As DataTable
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As New OleDbConnection(connectionstring),
             CMD As New OleDbCommand(query, CN),
             Sda As New OleDbDataAdapter(CMD),
@@ -64,7 +65,7 @@ Public Class CashDetails
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -86,7 +87,7 @@ Public Class CashDetails
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -108,7 +109,7 @@ Public Class CashDetails
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -130,7 +131,7 @@ Public Class CashDetails
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -142,10 +143,6 @@ Public Class CashDetails
     End Sub
 
     Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
-
-    End Sub
-
-    Private Sub CRP1_Load(sender As Object, e As EventArgs) Handles CRP1.Load
 
     End Sub
 End Class

@@ -93,7 +93,7 @@ Partial Class CashDetails
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGreen
         Me.ClientSize = New System.Drawing.Size(718, 434)
-        Me.Controls.Add(Me.CRP1)
+        ' Me.Controls.Add(Me.CRP1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label14)

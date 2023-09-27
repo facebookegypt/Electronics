@@ -1,7 +1,9 @@
 ﻿Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
+
 Public Class StoresRPT
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Public StoreItm As String = Nothing
     Private Function GetData(query As String) As DataTable
         Using CN As New OleDbConnection(connectionstring),
@@ -30,7 +32,7 @@ Public Class StoresRPT
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next

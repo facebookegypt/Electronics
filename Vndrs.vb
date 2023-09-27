@@ -3,6 +3,8 @@ Imports System.Data.OleDb
 Imports System.Linq
 
 Public Class Vndrs
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Function GetData(ByVal SqlStr As String)
         Dim NewDtbl As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
         Try

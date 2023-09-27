@@ -1,9 +1,10 @@
 ﻿Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
 
 Public Class CustsVends
     Public SrcFrm As String = Nothing
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Private Function GetData(query As String) As DataTable
         Using CN As New OleDbConnection(connectionstring),
             CMD As New OleDbCommand(query, CN),
@@ -31,7 +32,7 @@ Public Class CustsVends
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -53,7 +54,7 @@ Public Class CustsVends
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -75,7 +76,7 @@ Public Class CustsVends
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next
@@ -97,7 +98,7 @@ Public Class CustsVends
                         For Each Obj In Objs
                             If TypeOf Obj Is TextObject Then
                                 With Obj
-                                    .ObjectFormat.HorizontalAlignment = Alignment.HorizontalCenterAlign
+                                    .ObjectFormat.HorizontalAlignment = CrystalDecisions.Shared.Alignment.HorizontalCenterAlign
                                 End With
                             End If
                         Next

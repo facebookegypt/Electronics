@@ -1,4 +1,5 @@
 ﻿Imports Tulpep.NotificationWindow
+
 Public Class MainF
     Private popupNotifier1 As PopupNotifier
     Public N As Byte = 0
@@ -8,6 +9,7 @@ Public Class MainF
     '14 Nov, 2018
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
         Try
+            Dim Cryp As New Simple3Des(My.Settings.K)
             '---------------------------------------------------------------------------------
             ThisBackPath = GetSetting("Maktaba", "BackUp", "Database")
             If String.IsNullOrEmpty(ThisBackPath) Then ThisBackPath = Application.StartupPath
@@ -26,7 +28,7 @@ Public Class MainF
                 Try
                     MyAccDB.CompactDatabase(OriginalDB,
                                     ThisBackPath & "backup" & RandomString() & ".accdb.bak", , ,
-                                    ";pwd=" & My.Settings.DatabasePass)
+                                    ";pwd=" & Cryp.DecryptData(My.Settings.DatabasePass))
                 Catch ex As Exception
                     MsgBox("Error : " & ex.Message)
                 End Try
@@ -79,6 +81,8 @@ Public Class MainF
         End Try
     End Sub
     Private Sub MainF_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         KeyPreview = True
         Timer1.Enabled = True
         Dim Notif As String = "ليس لديك تنبيهات"
@@ -86,7 +90,7 @@ Public Class MainF
         Dim SQLSTR As String =
             "SELECT PODetails.PID FROM Products INNER JOIN PODetails ON Products.PID = PODetails.PID GROUP BY PODetails.PID, Products.MinQ, " &
             "Products.MinQ HAVING (((Sum([PODETAILS].[QNTYIN]-[PODETAILS].[QNTYOUT]))<=[PRODUCTS].[MINQ]));"
-        Using CN As OleDb.OleDbConnection = New OleDb.OleDbConnection(connectionstring),
+        Using CN As OleDb.OleDbConnection = New OleDb.OleDbConnection(ConnectionString),
                 CMD As OleDb.OleDbCommand = New OleDb.OleDbCommand(SQLSTR, CN)
             Try
                 CN.Open()

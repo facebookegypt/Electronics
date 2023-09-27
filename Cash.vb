@@ -2,10 +2,12 @@
 Public Class Cash
     Private displayWhat As String = "Until Now"
     Private Function GetCash(ByVal TraTyp As Integer) As Decimal
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.POPaid) AS SumOfPOPaid FROM PurOrders GROUP BY PurOrders.TranID HAVING (((PurOrders.TranID)=?));"
-        Using CN As OleDbConnection = New OleDbConnection(connectionstring),
-                CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
+        Using CN As OleDbConnection = New OleDbConnection(ConnectionString),
+            CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", TraTyp)
             Try
                 CN.Open()
@@ -23,6 +25,8 @@ Public Class Cash
         End Using
     End Function
     Private Function GetInst(ByVal TrID As Integer) As Decimal
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlStr As String =
             "SELECT Sum(CustPaid.Payamnt) AS SumOfPayamnt FROM CustPaid WHERE TranID=?;"
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
@@ -105,6 +109,8 @@ Public Class Cash
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.POPaid) AS SumOfPOPaid FROM PurOrders " &
             "GROUP BY Format([PODt],'Short Date'), PurOrders.TranID HAVING (((Format([PODt],'Short Date'))=#" & OnDt & "#) AND ((PurOrders.TranID)=?));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", TraTyp)
@@ -133,6 +139,8 @@ Public Class Cash
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.POPaid) AS SumOfPOPaid FROM PurOrders WHERE (((Format([PODt],'Short Date'))<=#" & OnDt & "#)) " &
             "GROUP BY PurOrders.TranID HAVING (((PurOrders.TranID)=?));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", TraTyp)
@@ -174,6 +182,8 @@ Public Class Cash
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.POPaid) AS SumOfPOPaid FROM PurOrders WHERE (((Format([PODt],'Short Date')) " &
             "BETWEEN #" & Dt1 & "# AND #" & Dt2 & "#)) GROUP BY PurOrders.TranID HAVING (((PurOrders.TranID)=?));"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 CMD As OleDbCommand = New OleDbCommand(SqlStr, CN) With {.CommandType = CommandType.Text}
             CMD.Parameters.AddWithValue("?", TraTyp)

@@ -1,5 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class VendPays
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Private WithEvents DGPays As DataGridView, MyTable As DataTable =
         New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
     Public ThisCust As Integer, AllCredits() As Decimal, AllInst As Decimal = 0

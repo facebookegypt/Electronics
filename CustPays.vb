@@ -54,6 +54,8 @@ Public Class CustPays
         Label1.Text = "اجمالي المتبقي =  = " & FormatCurrency(AllRest, 2)
     End Sub
     Private Sub DGPays_RemoveRow(sender As Object, e As KeyEventArgs)
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         If DGPays.Rows.Count > 0 And Not DGPays.CurrentRow Is Nothing Then
             If e.KeyCode = Keys.Delete Then
                 Dim Irow As DataGridViewRow = DGPays.CurrentRow
@@ -145,6 +147,8 @@ Public Class CustPays
         DisplayAll()
     End Sub
     Private Sub DisplayAll()
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim MyTableMain As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
         Dim SqlStr As String =
             "SELECT CustPaid.PAYID, CustPaid.PayDt, CustPaid.Payamnt, CustPaid.PayNotes FROM CustPaid GROUP BY CustPaid.PAYID, CustPaid.PayDt, " &
@@ -189,6 +193,8 @@ Public Class CustPays
                        MsgBoxStyle.MsgBoxRtlReading + MsgBoxStyle.MsgBoxRight + MsgBoxStyle.Critical, "برنامج المشتريات و المبيعات")
                 Exit Sub
             End If
+            Dim Ops As New DataOperations
+            Dim ConnectionString = Ops.GetEncryConStr
             Using CN As OleDbConnection = New OleDbConnection(connectionstring),
                 MyCmdStr As New OleDbCommand(SqlStrINS, CN) With {.CommandType = CommandType.Text}
                 CN.Open()
@@ -251,6 +257,8 @@ Public Class CustPays
     End Sub
     Private Sub MnuPrint_Click(sender As Object, e As EventArgs) Handles MnuPrint.Click
         CashDetails.TargetForm1 = "AllCustPaid"
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim Onhr, Onhr1 As Integer
         Dim SalInvDrop As String = "DROP VIEW CustInsts;"
         Dim SalInvCreate As String =
@@ -285,6 +293,8 @@ Public Class CustPays
     Private Function GetAllPays(ByVal CustmrID As Integer, ByVal TRID As Integer) As Decimal()
         Dim MyList As Decimal() = Nothing
         'Total, Paid, Rest, INSTALLMENTS, RestOFInstallments
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlStr As String =
             "SELECT Sum(PurOrders.POTotal) AS SumOfPOTotal, Sum(PurOrders.POPaid) AS SumOfPOPaid, Sum(PurOrders.PORest) AS SumOfPORest " &
             "FROM PurOrders GROUP BY PurOrders.TranID, PurOrders.CustID HAVING (((PurOrders.TranID)=?) AND ((PurOrders.CustID)=?));"
@@ -313,6 +323,8 @@ Public Class CustPays
         Return MyList
     End Function
     Private Function GetAllInsts(ByVal CustID1 As Integer) As Decimal
+        Dim Ops As New DataOperations
+        Dim ConnectionString = Ops.GetEncryConStr
         Dim SqlStr As String =
             "SELECT Sum(CustPaid.Payamnt) AS SumOfPayamnt FROM CustPaid GROUP BY CustPaid.CustID, CustPaid.TranID HAVING (((CustPaid.CustID)=?) " &
             "AND ((CustPaid.TranID)=2));"

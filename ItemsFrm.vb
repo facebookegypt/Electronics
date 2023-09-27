@@ -1,5 +1,7 @@
 ﻿Imports System.Data.OleDb
 Public Class ItemsFrm
+    Private Ops As New DataOperations
+    Private ConnectionString = Ops.GetEncryConStr
     Private WithEvents DGReady As DataGridView, DT As DataTable = New DataTable With {.Locale = Globalization.CultureInfo.InvariantCulture}
     Private ItmID As Integer
     Private Sub ItemsFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

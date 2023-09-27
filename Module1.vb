@@ -5,7 +5,7 @@ Module Module1
     Public PreForm As Form
     Public ThisBackPath As String = Nothing
     Public MyPass As String = My.Settings.DatabasePass
-    Public connectionstring As String = "Provider=Microsoft.ACE.OLEDB.16.0;" &
+    Public connectionstring1 As String = "Provider=Microsoft.ACE.OLEDB.12.0;" &
                                         "Data Source=" & Path.Combine(Application.StartupPath, My.Settings.DBName) & ";" &
                                         "Persist Security Info = false;" &
                                         "Jet OLEDB:Database Password='" & MyPass & "';"
@@ -31,8 +31,8 @@ Module Module1
         Dim OriginalDB As String = Path.Combine(Application.StartupPath, My.Settings.DBName)
         Dim jro As JRO.JetEngine
         jro = New JRO.JetEngine()
-        Dim a = "Provider=Microsoft.ACE.OLEDB.16.0; Data Source=" & OriginalDB & "; Jet OLEDB:Database Password=01002851540;"
-        Dim b = "Provider=Microsoft.ACE.OLEDB.16.0; Data Source=" & Compactedfil &
+        Dim a = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & OriginalDB & "; Jet OLEDB:Database Password=01002851540;"
+        Dim b = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & Compactedfil &
             "; Jet OLEDB: Engine Type=5; Jet OLEDB:Database Password=01002851540;"
         Try
             jro.CompactDatabase(a, b)
@@ -69,6 +69,8 @@ Module Module1
                 .DataSource = BindingSource1
                 .Refresh()
             End With
+            Dim Ops As New DataOperations
+            Dim ConnectionString = Ops.GetEncryConStr
             Using CNStr As OleDbConnection = New OleDbConnection(connectionstring),
                 MyCmdStr As OleDbCommand = New OleDbCommand(MySqlStr, CNStr) With {.CommandType = CommandType.Text}
                 Using Da As OleDbDataAdapter = New OleDbDataAdapter(MyCmdStr)
